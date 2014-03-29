@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
+
+	<LinearLayout
+		android:id="@+id/linear0"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/burlywood"
+		android:orientation="vertical" >
+
+		<LinearLayout
+			android:id="@+id/linearLayout1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:paddingBottom="5dip"
+			android:paddingTop="10dip" >
+
+			<TextView
+				android:id="@+id/tv_tab1"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="1.0"
+				android:gravity="center"
+				android:text="头条"
+				android:textColor="@color/blue"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/tv_tab2"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="1.0"
+				android:gravity="center"
+				android:text="体育"
+				android:textColor="@color/chocolate"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/tv_tab3"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="1.0"
+				android:gravity="center"
+				android:text="新闻"
+				android:textColor="@color/chocolate"
+				android:textSize="18sp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:orientation="vertical"
+			android:paddingBottom="3dip" >
+
+			<ImageView
+				android:id="@+id/iv_title_line"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dp"
+				android:scaleType="matrix"
+				android:src="@drawable/line" />
+		</LinearLayout>
+	</LinearLayout>
+
+	<android.support.v4.view.ViewPager
+		android:id="@+id/pager"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@+id/linear1"
+		android:layout_below="@+id/linear0" >
+
+		<android.support.v4.view.PagerTabStrip
+			android:id="@+id/pager_tab_strip"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="top"
+			android:background="#8f3322" />
+	</android.support.v4.view.ViewPager>
+
+	<LinearLayout
+		android:id="@+id/linear1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:background="#AAB3FB"
+		android:orientation="horizontal" >
+
+		<ImageButton
+			android:id="@+id/mNews"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_weight="1"
+			android:contentDescription="新闻"
+			android:src="@drawable/ic_launcher" />
+
+		<ImageButton
+			android:id="@+id/mWebapp"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_weight="1"
+			android:contentDescription="轻应用"
+			android:src="@drawable/ic_launcher" />
+
+		<ImageButton
+			android:id="@+id/mSoftware"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_weight="1"
+			android:contentDescription="软件"
+			android:src="@drawable/ic_launcher" />
+	</LinearLayout>
+
+</RelativeLayout>

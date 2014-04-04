@@ -593,7 +593,7 @@ public class PullToRefreshListView extends ListView implements OnScrollListener 
 	}
 	@Override
 	public void onScroll(AbsListView view, int firstVisibleItem,int visibleItemCount, int totalItemCount) {//第一个可见的索引（0） 可见item数目   总item数目
-		Log.i("llb","onScroll:"+firstVisibleItem+" "+visibleItemCount+" "+totalItemCount+" "+getLastVisiblePosition());
+		Log.i("llb"," pulltorefresh onScroll:"+firstVisibleItem+" "+visibleItemCount+" "+totalItemCount+" "+getLastVisiblePosition());
 		if(getLastVisiblePosition()>totalItemCount-2&&totalItemCount>visibleItemCount){//快到底部了&&至少有一屏
 			location=1;//表示这是底部上拉刷新
 			tailContainer.setVisibility(View.VISIBLE);//把整个底部隐藏了

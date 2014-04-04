@@ -28,6 +28,10 @@ public class MyViewPagerAdapter extends FragmentPagerAdapter {
 		this.fragments = fragments;
 		this.tabTitleList=tabTitleList;
 	}
+	public MyViewPagerAdapter(FragmentManager fm,ArrayList<Fragment> fragments) {
+		super(fm);
+		this.fragments = fragments;
+	}
 	@Override
 	public Fragment getItem(int arg0) {
 		return fragments.get(arg0);//返回Fragment对象

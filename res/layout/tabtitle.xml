@@ -19,7 +19,7 @@
 			android:layout_height="fill_parent"
 			android:layout_weight="1.0"
 			android:gravity="center"
-			android:text="头条"
+			android:text="榜单"
 			android:textColor="@color/blue"
 			android:textSize="18sp" />
 
@@ -29,7 +29,7 @@
 			android:layout_height="fill_parent"
 			android:layout_weight="1.0"
 			android:gravity="center"
-			android:text="体育"
+			android:text="分类"
 			android:textColor="@color/chocolate"
 			android:textSize="18sp" />
 
@@ -39,7 +39,7 @@
 			android:layout_height="fill_parent"
 			android:layout_weight="1.0"
 			android:gravity="center"
-			android:text="新闻"
+			android:text="新锐"
 			android:textColor="@color/chocolate"
 			android:textSize="18sp" />
 	</LinearLayout>

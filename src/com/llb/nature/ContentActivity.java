@@ -2,6 +2,8 @@ package com.llb.nature;
 
 import java.util.ArrayList;
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -24,7 +28,6 @@ import com.llb.nature.fragment.News1Fragment;
 import com.llb.nature.fragment.News2Fragment;
 import com.llb.nature.fragment.News3Fragment;
 import com.llb.nature.fragment.SoftWare1Fragment;
-import com.llb.nature.fragment.SoftWare2Fragment;
 import com.llb.nature.fragment.SoftWare3Fragment;
 import com.llb.nature.fragment.WebApp1Fragment;
 import com.llb.nature.fragment.WebApp2Fragment;
@@ -44,10 +47,16 @@ public class ContentActivity extends FragmentActivity implements OnPageChangeLis
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+//		getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);//让ActionBar漂浮
 		setContentView(R.layout.activity_content);
 		key=this.getIntent().getIntExtra("key", 0);
+		initActionBar();
 		initTabTitle();//上面滑动的线条和标题头
 		initViewPager();
+	}
+	private void initActionBar(){
+		ActionBar actionBar=getActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true); 
 	}
 	private void initTabTitle(){
 		tv_tab1=(TextView) findViewById(R.id.tv_tab1);
@@ -87,7 +96,7 @@ public class ContentActivity extends FragmentActivity implements OnPageChangeLis
 			break;
 		case 1://软件已经默认了
 			fragments.add(new SoftWare1Fragment());
-			fragments.add(new SoftWare2Fragment());
+			fragments.add(new WebApp2Fragment());//暂时使用跟轻应用一个页面
 			fragments.add(new SoftWare3Fragment());
 			break;
 		case 2://轻应用
@@ -158,5 +167,26 @@ public class ContentActivity extends FragmentActivity implements OnPageChangeLis
 //			return a;//imageSwitcher.dispatchTouchEvent(event);
 		}
 		return false;
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode==KeyEvent.KEYCODE_BACK) {
+			Log.i("Llb","离开");
+			finish();
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	            Intent intent = new Intent(this, MainActivity.class);
+	            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	            startActivity(intent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 }

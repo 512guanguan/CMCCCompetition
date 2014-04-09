@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/whitesmoke" >
+
+	<ListView
+		android:id="@+id/lv_software3"
+		android:layout_width="fill_parent"
+		android:layout_height="match_parent"
+		android:layout_marginLeft="5sp"
+		android:layout_marginRight="5sp"
+		android:divider="@color/lavender"
+		android:dividerHeight="2sp"
+		android:fadingEdge="none"
+		android:fastScrollEnabled="true" />
+
+</RelativeLayout>

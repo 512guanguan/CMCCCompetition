@@ -53,7 +53,7 @@ public class News1ListViewAdapter extends BaseAdapter{
 		content=(TextView) convertView.findViewById(R.id.tv_content);
 		time=(TextView) convertView.findViewById(R.id.tv_time);
 		
-		imageView.setImageResource(R.drawable.mmlogo);
+		imageView.setImageResource(R.drawable.aa);
 		title.setText(list.get(position).getTitle());
 		content.setText(list.get(position).getContent());
 		time.setText(list.get(position).getTime());

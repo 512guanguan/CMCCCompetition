@@ -10,7 +10,7 @@
 		android:layout_height="40dip"
 		android:layout_alignParentLeft="true"
 		android:layout_centerVertical="true"
-		android:src="@drawable/mmlogo" />
+		android:src="@drawable/appicon1" />
 
 	<LinearLayout
 		android:id="@+id/midlinear"

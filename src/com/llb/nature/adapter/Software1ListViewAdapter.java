@@ -58,7 +58,7 @@ public class Software1ListViewAdapter extends BaseAdapter{
 		downloadTime=(TextView) convertView.findViewById(R.id.tv_downloadtimes);
 		size=(TextView) convertView.findViewById(R.id.tv_size);
 		
-		imageView.setImageResource(R.drawable.mmlogo);
+		imageView.setImageResource(R.drawable.appicon1);
 		title.setText(list.get(position).getTitle());
 		content.setText(list.get(position).getContent());
 		starRating.setRating(list.get(position).getStarRating());

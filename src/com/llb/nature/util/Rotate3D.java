@@ -2,7 +2,6 @@ package com.llb.nature.util;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
@@ -34,14 +33,14 @@ public class Rotate3D extends Animation{
 		float rotateDegree=fromDegree+(endDegree-fromDegree)*interpolatedTime;//旋转角度
 		Matrix matrix=t.getMatrix();//返回一个3*3矩阵
 		
-		Log.i("Llb","rotate0"+rotateDegree);
+//		Log.i("Llb","rotate0"+rotateDegree);
 		if (rotateDegree<-70) {
 			rotateDegree=-90.0f;//若转个180°就完全反向了
 			camera.save();//保存当前状态
 			camera.rotateY(rotateDegree);//绕Y轴旋转
 			camera.getMatrix(matrix);
 			camera.restore();//恢复状态
-			Log.i("llb","rotate1"+rotateDegree);
+//			Log.i("llb","rotate1"+rotateDegree);
 		}else if (rotateDegree>70) {
 			rotateDegree=90.0f;
 			camera.save();//保存当前状态
@@ -55,7 +54,7 @@ public class Rotate3D extends Animation{
 			camera.translate(0, 0, -centerX);		//复位
 			camera.getMatrix(matrix);
 			camera.restore();
-			Log.i("llb","rotate2"+rotateDegree);
+//			Log.i("llb","rotate2"+rotateDegree);
 		}
 		//参数是平移的距离,而不是平移目的地的坐标     确保图片的翻转过程一直处于组件的中心点位置
 		matrix.preTranslate(-centerX, -centerY);//由于缩放是以(0,0)为中心的,所以为了把界面的中心与(0,0)对齐    setScale前

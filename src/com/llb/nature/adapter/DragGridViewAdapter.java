@@ -107,10 +107,27 @@ public class DragGridViewAdapter extends BaseAdapter {
 			textView.setText( itemBeans.get(position).getName());
 			//设置图标，其他的暂时用默认图标
 			if(itemBeans.get(position).getImageUrl().equals("0")){//第一个资讯
-				itemImageView.setImageResource(R.drawable.mmlogo);
+				itemImageView.setImageResource(R.drawable.mmnews);
 			}else if (itemBeans.get(position).getImageUrl().equals("1")) {//第二个MM商城
-				itemImageView.setImageResource(R.drawable.mmlogo);
+				itemImageView.setImageResource(R.drawable.mm);
+			}else if(itemBeans.get(position).getImageUrl().equals("a1")){
+				itemImageView.setImageResource(R.drawable.a1);
+			}else if(itemBeans.get(position).getImageUrl().equals("a2")){
+				itemImageView.setImageResource(R.drawable.a2);
+			}else if(itemBeans.get(position).getImageUrl().equals("a3")){
+				itemImageView.setImageResource(R.drawable.a3);
+			}else if(itemBeans.get(position).getImageUrl().equals("a4")){
+				itemImageView.setImageResource(R.drawable.a4);
+			}else if(itemBeans.get(position).getImageUrl().equals("a5")){
+				itemImageView.setImageResource(R.drawable.a5);
+			}else if(itemBeans.get(position).getImageUrl().equals("a6")){
+				itemImageView.setImageResource(R.drawable.a6);
+			}else if(itemBeans.get(position).getImageUrl().equals("a7")){
+				itemImageView.setImageResource(R.drawable.a7);
+			}else if(itemBeans.get(position).getImageUrl().equals("a8")){
+				itemImageView.setImageResource(R.drawable.a8);
 			}
+			
 //			//演示如何监听事件
 //			itemImageView.setOnLongClickListener(new OnLongClickListener() {
 //				@Override

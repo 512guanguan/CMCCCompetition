@@ -34,7 +34,7 @@
 				android:layout_gravity="center_vertical"
 				android:maxLines="1"
 				android:paddingLeft="10sp"
-				android:text="游戏"
+				android:text="指尖网球"
 				android:textSize="16sp"
 				android:textStyle="bold" />
 
@@ -97,24 +97,5 @@
 				android:textSize="10dp" />
 		</LinearLayout>
 	</RelativeLayout>
-
-	<ImageView
-		android:id="@+id/line"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/relative"
-		android:layout_margin="5sp"
-		android:src="@drawable/webapp2line" />
-
-	<TextView
-		android:id="@+id/tv_content"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/line"
-		android:layout_marginLeft="5sp"
-		android:layout_marginRight="5sp"
-		android:lines="2"
-		android:text="保卫萝卜、我的世界、燃烧的蔬菜2"
-		android:textSize="13sp" />
 
 </RelativeLayout>

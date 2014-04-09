@@ -33,8 +33,8 @@ public class MainActivity extends SlidingFragmentActivity implements
 	private ActionBar actionBar;
 	private DragGridView gridView;
 	private DragGridViewAdapter gridViewAdapter;
-	private ImageView deleteImageView;
-	private ArrayList<String> itemNames;//
+//	private ImageView deleteImageView;
+//	private ArrayList<String> itemNames;//
 	private ArrayList<GridViewItemBean> itemBeans;//用来放主页的item数据
 	private Button finishButton;//底部的完成按钮
 	public static  boolean show=false;//长按时显示的内容
@@ -49,6 +49,7 @@ public class MainActivity extends SlidingFragmentActivity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+//		getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		initSlidingMenu();// 初始化右边滑屏，这里面有setContentView函数，必须最前面
 		initLeftView();
 		initMainView();
@@ -61,8 +62,6 @@ public class MainActivity extends SlidingFragmentActivity implements
 		sm = getSlidingMenu();
 		setContentView(R.layout.activity_main);// 设置当前的视图
 		setBehindContentView(R.layout.left);// 设置左页视图
-
-		// ActionBar actionBar=getActionBar();
 
 		sm.setMode(SlidingMenu.LEFT);
 		// 设置滑动阴影的宽度
@@ -108,21 +107,23 @@ public class MainActivity extends SlidingFragmentActivity implements
 		gridView=(DragGridView) findViewById(R.id.gridview);
 		finishButton=(Button) findViewById(R.id.finish);
 		
-		itemNames=new ArrayList<String>();
+//		itemNames=new ArrayList<String>();
 		itemBeans=new ArrayList<GridViewItemBean>();
-		itemBeans.add(new GridViewItemBean("0", "MM商城", ""	));
+		itemBeans.add(new GridViewItemBean("0", "资讯", ""	));
 		itemBeans.add(new GridViewItemBean("1", "应用下载", ""));
-		itemBeans.add(new GridViewItemBean("/sdcard/DSC_0001.JPG", "小米", "http://..."	));
-		itemBeans.add(new GridViewItemBean("/sdcard/DSC_0001.JPG", "小米", "http://..."	));
-		itemBeans.add(new GridViewItemBean("/sdcard/DSC_0001.JPG", "小米", "http://..."	));
-		itemBeans.add(new GridViewItemBean("/sdcard/DSC_0001.JPG", "小米", "http://..."	));
-		itemBeans.add(new GridViewItemBean("/sdcard/DSC_0001.JPG", "小米", "http://..."	));
-		itemBeans.add(new GridViewItemBean("/sdcard/DSC_0001.JPG.", "小米", "http://..."	));
-		itemBeans.add(new GridViewItemBean("", "", ""	));
-		String[] names={"小米","大米","黑米","红米","紫米","二货","二逼","移动","联通",""};
-		for(String item:names){
-			itemNames.add(item);
-		}
+		itemBeans.add(new GridViewItemBean("a1", "税务查询", "http://..."	));
+		itemBeans.add(new GridViewItemBean("a2", "有信", "http://..."	));
+		itemBeans.add(new GridViewItemBean("a3", "红孩子商城", "http://..."	));
+		itemBeans.add(new GridViewItemBean("a4", "路透社", "http://..."	));
+		itemBeans.add(new GridViewItemBean("a5", "新浪微博", "http://..."	));
+		itemBeans.add(new GridViewItemBean("a6", "旅行翻译官", "http://..."	));
+		itemBeans.add(new GridViewItemBean("a7", "今日头条", "http://..."	));
+		itemBeans.add(new GridViewItemBean("a8", "中国电信", "http://..."	));
+		itemBeans.add(new GridViewItemBean("", "", ""));
+//		String[] names={"小米","大米","黑米","红米","紫米","二货","二逼","移动","联通",""};
+//		for(String item:names){
+//			itemNames.add(item);
+//		}
 		Configure.init(this);
 		gridViewAdapter=new DragGridViewAdapter(this, itemBeans);
 		gridView.setAdapter(gridViewAdapter);
@@ -141,14 +142,11 @@ public class MainActivity extends SlidingFragmentActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			if(this.getClass()==MainActivity.class){
-				
-			}else {
-				Intent intent=new Intent(this, MainActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);
-			}
-			
+			//跳到左边页面
+//			Intent intent=new Intent(this, MainActivity.class);
+//			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//			startActivity(intent);
+			sm.toggle();//打开侧边栏
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

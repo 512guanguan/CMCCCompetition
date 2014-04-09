@@ -2,6 +2,7 @@ package com.llb.nature.fragment;
 
 import java.util.ArrayList;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -37,6 +38,8 @@ public class SoftWare1Fragment extends Fragment implements OnClickListener{
 	private int index=0;//轮播到第几张图片
 	private GestureDetector gestureDetector;//手势监听
 	
+	private ImageAsynTask imageAsynTask;
+	
 	private int[] imageList={R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d};//ArrayList<String> imageList;//存储轮播图片url
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,8 @@ public class SoftWare1Fragment extends Fragment implements OnClickListener{
 					return imageView;
 				}
 			});
+//			imageAsynTask=new ImageAsynTask();
+//			imageAsynTask.execute(index);
 		}
 		ViewGroup parent = (ViewGroup) view.getParent();
 		if(parent!=null){
@@ -86,7 +91,7 @@ public class SoftWare1Fragment extends Fragment implements OnClickListener{
 			public boolean onTouch(View v, MotionEvent event) {
 				halfHeight=imageSwitcher.getHeight()/2.0f;
 				halfWidth=imageSwitcher.getWidth()/2.0f;
-				Log.i("llb","尺寸"+halfWidth+"*"+halfHeight);
+//				Log.i("llb","尺寸"+halfWidth+"*"+halfHeight);
 				Log.i("llb","imageswitcher检测到了事件");
 				boolean a=gestureDetector.onTouchEvent(event);
 				Log.i("llb","a="+a);
@@ -94,6 +99,10 @@ public class SoftWare1Fragment extends Fragment implements OnClickListener{
 			}
 		});
 		
+		imageAsynTask=new ImageAsynTask();
+		imageAsynTask.execute(index);
+//		halfHeight=imageSwitcher.getHeight()/2.0f;
+//		halfWidth=imageSwitcher.getWidth()/2.0f;
 		return view;
 	}
 	@Override
@@ -148,7 +157,7 @@ public class SoftWare1Fragment extends Fragment implements OnClickListener{
 		        rotateOut.setFillAfter(true);
 		        imageSwitcher.setOutAnimation(rotateOut); 
 		        
-		        index+=1;//序号降一
+		        index+=1;//序号加一
 		        index=(index==imageList.length)?0:index;//只有等于0时需要调整
 		        
 		        imageSwitcher.setImageResource(imageList[index]);//设置新图片
@@ -179,26 +188,41 @@ public class SoftWare1Fragment extends Fragment implements OnClickListener{
 		}
 	}
 	
-//	class ImageAsynTask extends AsyncTask<Integer,Integer,String>{
-//		@Override
-//		protected String doInBackground(Integer... params) {
-//			// TODO Auto-generated method stub
-//			for(int i=0;i<Integer.MAX_VALUE;i++){
-//				try {
-//					Thread.sleep(3000);
-//				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				publishProgress(values)
-//			}
-//			return null;
-//		}
-//		@Override
-//		protected void onProgressUpdate(Integer... values) {
-//			// TODO Auto-generated method stub
-//			super.onProgressUpdate(values);
-//		}
-//	}
+	class ImageAsynTask extends AsyncTask{
+		@Override
+		protected Object doInBackground(Object... params) {
+			// TODO Auto-generated method stub
+			Log.i("llb","输入的数据："+params[0]);
+			int index=(Integer)params[0];
+			for(int i=0;i<500;i++){
+				try {
+				Thread.sleep(5000);
+				index=(index==0)?3:(index-1);//逆序
+				publishProgress(index);//反馈
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			return null;
+		}
+		@Override
+		protected void onProgressUpdate(Object... values) {
+			super.onProgressUpdate(values);
+			Log.i("llb","得到的数据："+values[0]);
+			halfHeight=imageSwitcher.getHeight()/2.0f;
+			halfWidth=imageSwitcher.getWidth()/2.0f;
+			
+			Rotate3D rotateIn=new Rotate3D(-90, 0, halfWidth, halfHeight);//新图进来 从-90°到0°，
+			rotateIn.setDuration(duration);    
+			rotateIn.setFillAfter(true);//运动保持
+	        imageSwitcher.setInAnimation(rotateIn);   
+	        Rotate3D rotateOut = new Rotate3D(0,90,halfWidth,halfHeight);//旧图退出去
+	        rotateOut.setDuration(duration);    
+	        rotateOut.setFillAfter(true);
+	        imageSwitcher.setOutAnimation(rotateOut); 
+	        
+	        imageSwitcher.setImageResource(imageList[(Integer)values[0]]);
+		}
+	}
 	
 }

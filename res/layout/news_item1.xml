@@ -6,11 +6,11 @@
 
 	<ImageView
 		android:id="@+id/icon"
-		android:layout_width="50dp"
-		android:layout_height="50dp"
+		android:layout_width="60dp"
+		android:layout_height="60dp"
 		android:layout_alignParentLeft="true"
 		android:layout_centerVertical="true"
-		android:src="@drawable/mmlogo" />
+		android:src="@drawable/aa" />
 
 	<LinearLayout
 		android:id="@+id/midlinear"

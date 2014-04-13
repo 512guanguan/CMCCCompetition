@@ -192,12 +192,12 @@ public class SoftWare1Fragment extends Fragment implements OnClickListener{
 		@Override
 		protected Object doInBackground(Object... params) {
 			// TODO Auto-generated method stub
-			Log.i("llb","输入的数据："+params[0]);
+//			Log.i("llb","输入的数据："+params[0]);
 			int index=(Integer)params[0];
 			for(int i=0;i<500;i++){
 				try {
 				Thread.sleep(5000);
-				index=(index==0)?3:(index-1);//逆序
+//				index=(index==0)?3:(index-1);//逆序
 				publishProgress(index);//反馈
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -221,7 +221,9 @@ public class SoftWare1Fragment extends Fragment implements OnClickListener{
 	        rotateOut.setFillAfter(true);
 	        imageSwitcher.setOutAnimation(rotateOut); 
 	        
-	        imageSwitcher.setImageResource(imageList[(Integer)values[0]]);
+	        index=(index==0)?3:(index-1);//在外面更改序号更大程度上可以避免冲突
+			imageSwitcher.setImageResource(imageList[index]);//imageList[(Integer)values[0]]);
+	        
 		}
 	}
 	

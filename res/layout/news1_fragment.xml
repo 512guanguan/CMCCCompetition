@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="#E1E1E1" >
+	android:background="@color/lavender" >
 
 	<com.llb.nature.util.PullToRefreshListView
 		android:id="@+id/lv_news1"
 		android:layout_width="fill_parent"
 		android:layout_height="match_parent"
-		android:layout_marginTop="-3dp"
-		android:divider="#E1E1E1"
+		android:layout_marginTop="3dp"
+		android:divider="@color/lavender"
 		android:dividerHeight="3sp"
 		android:fadingEdge="none"
 		android:fastScrollEnabled="true" />

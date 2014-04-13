@@ -2,13 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@color/whitesmoke" >
+	android:background="@color/lavender" >
 
 	<com.llb.nature.util.PullToRefreshListView
 		android:id="@+id/lv_webapp1"
 		android:layout_width="fill_parent"
 		android:layout_height="match_parent"
-		android:layout_marginTop="-3sp"
+		android:layout_marginTop="3sp"
 		android:divider="@color/lavender"
 		android:dividerHeight="2sp"
 		android:fadingEdge="none"

@@ -11,20 +11,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.llb.nature.R;
-import com.llb.nature.domain.LeftViewItemBean;
 
-public class LeftViewAdapter extends BaseAdapter{
-	private ArrayList<LeftViewItemBean> list;//存储的是几个item需要的信息
+public class ActionbarNewsPopupListviewAdapter extends BaseAdapter{
+	private ArrayList<String> list;//存储的是几个item需要的信息
 	private Context mContext;
 	private ImageView imageView;//item上面的
 	private TextView textView;
-	public LeftViewAdapter( Context mContext,ArrayList<LeftViewItemBean> list){
+	public ActionbarNewsPopupListviewAdapter( Context mContext,ArrayList<String> list){
 		this.mContext=mContext;
 		this.list=list;
 	}
-	public LeftViewAdapter(Context mContext){
+	public ActionbarNewsPopupListviewAdapter(Context mContext){
 		this.mContext=mContext;
-		LeftViewItemBean item=null;//=new LeftViewItemBean(R.drawable.leftview, "热门帖子");
+		String item=null;//=new LeftViewItemBean(R.drawable.leftview, "热门帖子");
 		list.add(item);
 	}
 	@Override
@@ -45,13 +44,13 @@ public class LeftViewAdapter extends BaseAdapter{
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if(convertView==null){
-			convertView=LayoutInflater.from(mContext).inflate(R.layout.left_listview_item, null);
+			convertView=LayoutInflater.from(mContext).inflate(R.layout.actionbar_news_popup_item, null);
 		}
 //		View view=LayoutInflater.from(mContext).inflate(R.layout.left_listview_item, null);
-		imageView=(ImageView) convertView.findViewById(R.id.iv_item_icon);
+//		imageView=(ImageView) convertView.findViewById(R.id.iv_item_add);
 		textView=(TextView) convertView.findViewById(R.id.tv_item_name);
-		imageView.setImageResource(list.get(position).getItemImage());
-		textView.setText(list.get(position).getItemName());
+//		imageView.setImageResource(list.get(position).getItemImage());
+		textView.setText(list.get(position));
 		return convertView;
 	}
 }

@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@color/whitesmoke" >
+	android:background="@color/lavender" >
 
 	<com.llb.nature.util.MyImageSwitcher
 		android:id="@+id/imageswitcher"
 		android:layout_width="match_parent"
-		android:layout_height="100sp"
+		android:layout_height="200dp"
 		android:layout_alignParentTop="true" />
 
 	<ListView
@@ -15,8 +15,8 @@
 		android:layout_width="fill_parent"
 		android:layout_height="match_parent"
 		android:layout_below="@+id/imageswitcher"
-		android:layout_marginLeft="5sp"
-		android:layout_marginRight="5sp"
+		android:layout_marginLeft="1sp"
+		android:layout_marginRight="1sp"
 		android:divider="@color/lavender"
 		android:dividerHeight="2sp"
 		android:fadingEdge="none"

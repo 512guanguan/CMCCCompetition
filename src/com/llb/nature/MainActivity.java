@@ -91,9 +91,13 @@ public class MainActivity extends SlidingFragmentActivity implements
 		// 左边视图
 		leftListView = (ListView) sm.getMenu().findViewById(R.id.left_listView);
 		list = new ArrayList<LeftViewItemBean>();
-		list.add(new LeftViewItemBean("我的消息"));
-		list.add(new LeftViewItemBean("设置"));
-		list.add(new LeftViewItemBean("注销"));
+		list.add(new LeftViewItemBean("我的消息",R.drawable.menu_msg));
+		list.add(new LeftViewItemBean("我的评论",R.drawable.menu_comment));
+		list.add(new LeftViewItemBean("我的下载",R.drawable.menu_download));
+		list.add(new LeftViewItemBean("我的收藏",R.drawable.menu_favorite));
+		list.add(new LeftViewItemBean("移动服务",R.drawable.menu_mobile));
+		list.add(new LeftViewItemBean("设置",R.drawable.menu_settting));
+		list.add(new LeftViewItemBean("注销",R.drawable.menu_logout));
 //		list.add(new LeftViewItemBean(R.drawable.left_item5_exit, "注销"));
 		adapter = new LeftViewAdapter(sm.getContext(), list);
 		leftListView.setAdapter(adapter);
